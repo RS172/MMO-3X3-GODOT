@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://pngwing.com (1).png" type="Texture" id=1]
+[ext_resource path="res://pngegg.png" type="Texture" id=2]
+[ext_resource path="res://Espada.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6.5, 15 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.06, 0.06 )
+texture = ExtResource( 2 )
+
+[node name="Espada" type="Area2D" parent="."]
+position = Vector2( 0, -3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Espada"]
+position = Vector2( -0.5, 5 )
+shape = SubResource( 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = -12.0
+margin_top = 19.0
+margin_right = 58.0
+margin_bottom = 64.0
+rect_scale = Vector2( 1.25, 1.25 )
+text = "3
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 5, 26 )
+scale = Vector2( 0.018, 0.018 )
+texture = ExtResource( 1 )
+
+[connection signal="area_entered" from="Espada" to="." method="_on_Espada_area_entered"]
